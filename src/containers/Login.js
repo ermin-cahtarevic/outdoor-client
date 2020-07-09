@@ -1,14 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { loginUser } from '../actions/auth';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 const Login = () => {
+  const initialInputState = {
+    email: '',
+    password: '',
+  };
+
+  const [eachEntry, setEachEntry] = useState(initialInputState);
+  const { email, password } = eachEntry;
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleChange = e => {
+    setEachEntry({
+      ...eachEntry,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+    loginUser(user)(dispatch);
+    setEachEntry({
+      email: '',
+      password: '',
+    });
+    history.push('/dashboard');
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           className="email-input"
           type="email"
           name="email"
           placeholder="Email"
+          value={email}
+          onChange={handleChange}
           required
         />
         <input
@@ -16,12 +52,14 @@ const Login = () => {
           type="password"
           name="password"
           placeholder="Password"
+          value={password}
+          onChange={handleChange}
           required
         />
         <input
           type="submit"
           value="Login"
-          className="signup-btn"
+          className="login-btn"
         />
       </form>
     </div>

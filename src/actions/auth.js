@@ -3,27 +3,26 @@ import axios from 'axios';
 const urlSignup = 'http://localhost:3001/signup';
 const urlLogin = 'http://localhost:3001/auth/login';
 
-export const signupUser = user => {
+export const signupUser = user => dispatch => {
+  console.log(user)
   axios.post(
     urlSignup,
-    {
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      password_confirmation: user.password_confirmation,
-    },
+    user,
   ).then(res => {
     console.log(res.data);
+    dispatch({
+      type: 'SIGNUP_SUCCESS',
+      payload: {
+        token: res.data.auth_token,
+      }
+    })
   });
 };
 
 export const loginUser = user => dispatch => {
   axios.post(
     urlLogin,
-    {
-      email: user.email,
-      password: user.password,
-    },
+    user,
   ).then(res => {
     console.log(res.data);
     dispatch({

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getListings } from '.';
 
-const url = 'http://localhost:3001/listings';
+const url = 'https://outdoor-app-api.herokuapp.com/listings';
 
 export const fetchListings = () => dispatch => {
   const token = localStorage.getItem('token');

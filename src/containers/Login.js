@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { loginUser } from '../actions/auth';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import { loginUser } from '../actions/auth';
 
 const Login = () => {
   const initialInputState = {
@@ -17,9 +17,9 @@ const Login = () => {
   const handleChange = e => {
     setEachEntry({
       ...eachEntry,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,13 +27,12 @@ const Login = () => {
       email,
       password,
     };
-    loginUser(user)(dispatch);
+    loginUser(user, history)(dispatch);
     setEachEntry({
       email: '',
       password: '',
     });
-    history.push('/dashboard');
-  }
+  };
 
   return (
     <div>

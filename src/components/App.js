@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/App.css';
-import Home from './Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './Home';
 import Dashboard from './Dashboard';
 import Signup from '../containers/Signup';
 import Login from '../containers/Login';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   return (
@@ -20,9 +21,7 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/dashboard">
-            <Dashboard />
-          </Route>
+          <ProtectedRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
       </BrowserRouter>
     </div>

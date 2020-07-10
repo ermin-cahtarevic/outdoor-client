@@ -8,20 +8,22 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
-    password_confirmation: '',
+    passwordConfirmation: '',
   };
 
   const [eachEntry, setEachEntry] = useState(initialInputState);
-  const { name, email, password, password_confirmation } = eachEntry;
+  const {
+    name, email, password, passwordConfirmation,
+  } = eachEntry;
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleChange = e => {
     setEachEntry({
       ...eachEntry,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,16 +31,15 @@ const Signup = () => {
       name,
       email,
       password,
-      password_confirmation,
+      passwordConfirmation,
     };
-    signupUser(user)(dispatch);
+    signupUser(user, history)(dispatch);
     setEachEntry({
       name: '',
       email: '',
       password: '',
-      password_confirmation: '',
+      passwordConfirmation: '',
     });
-    history.push('/dashboard');
   };
 
   return (
@@ -74,9 +75,9 @@ const Signup = () => {
         <input
           className="password-input"
           type="password"
-          name="password_confirmation"
+          name="passwordConfirmation"
           placeholder="Password Confirmation"
-          value={password_confirmation}
+          value={passwordConfirmation}
           onChange={handleChange}
           required
         />

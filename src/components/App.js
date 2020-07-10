@@ -6,11 +6,13 @@ import Dashboard from './Dashboard';
 import Signup from '../containers/Signup';
 import Login from '../containers/Login';
 import ProtectedRoute from './ProtectedRoute';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />

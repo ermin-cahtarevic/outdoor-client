@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const urlSignup = 'http://localhost:3001/signup';
-const urlLogin = 'http://localhost:3001/auth/login';
+const urlSignup = 'https://outdoor-app-api.herokuapp.com/signup';
+const urlLogin = 'https://outdoor-app-api.herokuapp.com/auth/login';
 
 export const signupUser = (user, history) => dispatch => {
   axios.post(

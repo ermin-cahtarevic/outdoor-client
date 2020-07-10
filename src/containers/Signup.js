@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { signupUser } from '../actions/auth';
+import Navbar from '../components/Navbar';
 
 const Signup = () => {
   const initialInputState = {
@@ -44,6 +45,7 @@ const Signup = () => {
 
   return (
     <div>
+      <Navbar />
       <form onSubmit={handleSubmit}>
         <input
           className="name-input"

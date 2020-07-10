@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+}
+
+.logo {
+  text-decoration: none;
+  color: rgb(148, 148, 148);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo:hover h2 {
+  color: rgb(92, 92, 92);
+}
+
+.bars-menu {
+  font-size: 20px;
+  color: rgb(148, 148, 148);
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import Listings from '../containers/Listings';
+import Navbar from './Navbar';
 
 const Dashboard = () => (
   <div>
-    <h1>Dashboard</h1>
+    <Navbar />
     <Listings />
   </div>
 );

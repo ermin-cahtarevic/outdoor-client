@@ -1,0 +1,12 @@
+.home-page {
+  background: rgb(93, 93, 93) url(/group-hiking.jpeg) 50% 50% no-repeat fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.home-page h1 {
+  color: white;
+  margin-top: 200px;
+  padding: 0 15px;
+  font-size: 45px;
+}

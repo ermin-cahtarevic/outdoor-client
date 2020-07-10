@@ -36,4 +36,8 @@ ProtectedRoute.propTypes = {
   location: Proptypes.instanceOf(Object).isRequired,
 };
 
+ProtectedRoute.defaultProps = {
+  location: {},
+};
+
 export default ProtectedRoute;

@@ -1,0 +1,22 @@
+.listing-item {
+  width: 80%;
+  height: 80vh;
+  border: 1px solid black;
+  margin: 20px auto 0;
+}
+
+.listing-img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.listing-text {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.listing-text-left h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}

@@ -1,18 +1,55 @@
 .listings-list {
   display: flex;
   width: 100%;
-  height: 100vh;
 }
 
 .listings-list > div {
   width: 100%;
+  margin: 0 auto;
 }
 
-.carousel-initialized {
-  height: 100%;
+div.slick-list {
+  width: 100%;
 }
 
-.carousel-arrow {
-  margin-top: 20px;
-  height: 80vh;
+.slick-slide div:focus,
+.slick-slide div div:focus,
+.slick-slide.slick-active.slick-current > div:focus,
+.slick-slide.slick-active.slick-current div > div:focus,
+.slick-slide.slick-active.slick-current > div:visited,
+.slick-slide.slick-active.slick-current div > div:visited {
+  outline: none;
+}
+
+button.slick-arrow {
+  width: 27px;
+  height: 27px;
+}
+
+button.slick-prev,
+button.slick-next {
+  z-index: 999;
+  background-color: white;
+  border-radius: 100%;
+}
+
+button.slick-prev {
+  left: 28px;
+}
+
+button.slick-next {
+  right: 28px;
+}
+
+button.slick-prev:hover,
+button.slick-prev:focus,
+button.slick-next:hover, 
+button.slick-next:focus {
+  background-color: white;
+}
+
+button.slick-prev:before, 
+button.slick-next:before {
+  color: rgb(182, 182, 182);
+  font-size: 28px;
 }

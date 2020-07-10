@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 import '../styles/Listing.css';
 
 const Listing = ({ listing }) => {
@@ -8,10 +9,17 @@ const Listing = ({ listing }) => {
       <div className="listing-text">
         <div className="listing-text-left">
           <h3>{listing.title}</h3>
-          <p>rating</p>
+          <StarRatings
+            rating={3.5}
+            starDimension="20px"
+            starSpacing="1px"
+            starRatedColor="#d4af37"
+            starEmptyColor="rgb(221, 221, 221)"
+          />
         </div>
         <div className="listing-text-right">
-          <h5>price</h5>
+          <div>$75</div>
+          <span>per person</span>
         </div>
       </div>
     </div>

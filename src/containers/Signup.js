@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { signupUser } from '../actions/auth';
 import Navbar from '../components/Navbar';
+import '../styles/Login.css';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const initialInputState = {
@@ -44,51 +46,58 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <form onSubmit={handleSubmit}>
-        <input
-          className="name-input"
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="email-input"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="password-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="password-input"
-          type="password"
-          name="passwordConfirmation"
-          placeholder="Password Confirmation"
-          value={passwordConfirmation}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="submit"
-          value="Sign up"
-          className="signup-btn"
-        />
-      </form>
+    <div className="login-page">
+      <div className="login-page-cover">
+        <Navbar />
+        <div className="login-page-main">
+          <h1>Sign up</h1>
+          <p>Sign up for free and find your perfect outdoor experience</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="signup-input"
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="signup-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="signup-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="signup-input"
+              type="password"
+              name="passwordConfirmation"
+              placeholder="Password Confirmation"
+              value={passwordConfirmation}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="submit"
+              value="Sign up"
+              className="signup-btn"
+            />
+          </form>
+          <Link className="auth-redirect" to="login">Sign in</Link>
+        </div>
+      </div>
     </div>
   );
 };

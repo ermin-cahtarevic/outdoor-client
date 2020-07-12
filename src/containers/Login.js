@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { loginUser } from '../actions/auth';
 import Navbar from '../components/Navbar';
+import '../styles/Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const initialInputState = {
@@ -36,33 +38,40 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <form onSubmit={handleSubmit}>
-        <input
-          className="email-input"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="password-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="submit"
-          value="Login"
-          className="login-btn"
-        />
-      </form>
+    <div className="login-page">
+      <div className="login-page-cover">
+        <Navbar />
+        <div className="login-page-main">
+          <h1>Sign in</h1>
+          <p>Sign in and find your perfect outdoor experience</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="login-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="login-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="submit"
+              value="Login"
+              className="login-btn"
+            />
+          </form>
+          <Link className="auth-redirect" to="/signup">Sign up</Link>
+        </div>
+      </div>
     </div>
   );
 };

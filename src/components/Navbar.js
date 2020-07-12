@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/Navbar.css';
 import { useStore } from 'react-redux';
+import SideMenu from './SideMenu';
 
 const Navbar = () => {
+  const [menuOpen, toggleMenuOpen] = useState(false);
   const store = useStore();
   const state = store.getState();
 
@@ -15,27 +15,27 @@ const Navbar = () => {
     });
   }
 
+  let classListMenu =  menuOpen ? 'bars-menu nav-icon4 open' : 'bars-menu nav-icon4'
+
+  const handleMenuToggle = () => {
+    toggleMenuOpen(!menuOpen)
+  }
+
   return (
     <div className="navbar">
       <Link to="/" className="logo">
         <h2>Outdoor App</h2>
       </Link>
-      {
-        state.auth.isAuth ? (
-          <div>
-            <button onClick={handleLogout}>Logout</button>
-            <FontAwesomeIcon
-              icon={faBars}
-              className="bars-menu"
-            />
-          </div>
-        ) : (
-          <div>
-            <Link to="/login" className="navbar-signin">Sign in</Link>
-            <Link to="/signup" className="navbar-signup">Sign up</Link>
-          </div>
-        )
-      }
+      <div className={classListMenu} onClick={handleMenuToggle}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <SideMenu
+        isAuth={state.auth.isAuth}
+        sideMenuOpen={menuOpen}
+        handleLogout={handleLogout}
+      />
     </div>
   );
 }

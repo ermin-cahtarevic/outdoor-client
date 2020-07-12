@@ -1,0 +1,26 @@
+.side-menu {
+  position: fixed;
+  height: 100vh;
+  width: 70%;
+  background-color: white;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  z-index: 200;
+  box-shadow: -2px 0 8px #333;
+  transition: transform ease-out 0.4s;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu h3 {
+  color: rgb(148, 148, 148);
+}
+
+.menu-item {
+  display: inline;
+}

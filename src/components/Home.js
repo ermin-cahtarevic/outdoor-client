@@ -8,7 +8,7 @@ const Home = () => (
     <div className="home-top-section">
       <Navbar />
       <h1>Find your perfect outdoor experience</h1>
-      <h4>The best offers for you at any point of your journey.</h4>
+      <h4>The best offers for you at any point of your journey</h4>
       <Link to="/signup" className="start-free">Start free</Link>
     </div>
     <div className="home-main-section">

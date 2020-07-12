@@ -7,6 +7,7 @@ import { useStore } from 'react-redux';
 
 const Navbar = () => {
   const store = useStore();
+  const state = store.getState();
 
   const handleLogout = () => {
     store.dispatch({
@@ -19,13 +20,22 @@ const Navbar = () => {
       <Link to="/" className="logo">
         <h2>Outdoor App</h2>
       </Link>
-      <div>
-        <button onClick={handleLogout}>Logout</button>
-        <FontAwesomeIcon
-          icon={faBars}
-          className="bars-menu"
-        />
-      </div>
+      {
+        state.auth.isAuth ? (
+          <div>
+            <button onClick={handleLogout}>Logout</button>
+            <FontAwesomeIcon
+              icon={faBars}
+              className="bars-menu"
+            />
+          </div>
+        ) : (
+          <div>
+            <Link to="/login" className="navbar-signin">Sign in</Link>
+            <Link to="/signup" className="navbar-signup">Sign up</Link>
+          </div>
+        )
+      }
     </div>
   );
 }

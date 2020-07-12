@@ -9,7 +9,6 @@
 .logo {
   text-decoration: none;
   color: rgb(148, 148, 148);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo:hover h2 {
@@ -19,4 +18,24 @@
 .bars-menu {
   font-size: 20px;
   color: rgb(148, 148, 148);
+}
+
+.navbar-signup,
+.navbar-signin {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: all ease-out 0.3s;
+}
+
+.navbar-signup:hover,
+.navbar-signin:hover {
+  background-color: rgba(255, 255, 255);
+  color: black;
 }

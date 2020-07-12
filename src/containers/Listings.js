@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import Proptypes from 'prop-types';
 import Slider from 'react-slick';
 import { fetchListings } from '../actions/fetchListings';
-import Listing from '../components/Listing';
+import ListingItem from '../components/ListingItem';
 
 import '../styles/Listings.css';
 import "slick-carousel/slick/slick.css"; 
@@ -29,7 +29,7 @@ const Listings = ({ listings }) => {
           {
           listings.listings.map(listing => (
             <div key={listing.id}>
-              <Listing listing={listing} />
+              <ListingItem listing={listing} />
             </div>
             ))
           }

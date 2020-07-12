@@ -9,7 +9,6 @@ const Home = () => (
     <h1>Find your perfect outdoor experience</h1>
     <Link to="/signup">Signup</Link>
     <Link to="/login">Login</Link>
-    <Link to="/dashboard">Dashboard</Link>
   </div>
 );
 

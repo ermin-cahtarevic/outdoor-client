@@ -14,7 +14,7 @@ export const signupUser = (user, history) => dispatch => {
         token: res.data.auth_token,
       },
     });
-    history.push('/dashboard');
+    history.push('/');
   });
 };
 
@@ -29,6 +29,6 @@ export const loginUser = (user, history) => dispatch => {
         token: res.data.auth_token,
       },
     });
-    history.push('/dashboard');
+    history.push('/');
   });
 };

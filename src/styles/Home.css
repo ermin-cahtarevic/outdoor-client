@@ -1,5 +1,5 @@
 .home-top-section {
-  background: rgb(93, 93, 93) url(/group-hiking-3.jpeg) 90% 100% no-repeat;
+  background: rgb(93, 93, 93) url(/group-hiking-3.jpeg) 50% 50% no-repeat;
   background-size: cover;
   height: 100vh;
 }
@@ -16,6 +16,7 @@
   color: white;
   text-shadow: 2px 2px #000;
   font-size: 16px;
+  padding: 0 15px;
 }
 
 .start-free {
@@ -46,6 +47,7 @@
 
 .home-main-section h2 {
   margin: 15px 0 45px;
+  padding: 0 15px;
 }
 
 .home-main-section-img {

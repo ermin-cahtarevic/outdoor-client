@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/SideMenu.css';
 
 const SideMenu = props => {
@@ -9,18 +9,42 @@ const SideMenu = props => {
     menuClasses = 'side-menu open'
   }
 
+  const location = useLocation();
+
+  const paths = {
+    home: '/',
+    login: '/login',
+    signup: '/signup',
+  }
+
+  const classNames = {
+    home: 'menu-item',
+    login: 'menu-item',
+    signup: 'menu-item',
+  }
+
+  const current = Object.keys(paths).filter(x => paths[x] === location.pathname);
+  classNames[current] = 'menu-item active';
+
   return (
     <div className={menuClasses}>
       <h3>Outdoor App</h3>
       {
         props.isAuth ? (
-          <div>
-            <button onClick={props.handleLogout}>Logout</button>
+          <div className="side-menu-auth">
+            <div className="side-menu-auth-top">
+              <Link className={classNames.home} to={paths.home}>Home</Link>
+              <Link className={classNames.login} to={'/'}>Favourites</Link>
+            </div>
+            <div className="side-menu-auth-bottom">
+              <button className="side-menu-logout" onClick={props.handleLogout}>Logout</button>
+            </div>
           </div>
         ) : (
-          <div>
-            <Link className="menu-item" to="/login">Sign in</Link>
-            <Link className="menu-item" to="/signup">Sign up</Link>
+          <div className="side-menu-non-auth">
+            <Link className={classNames.home} to={paths.home}>Home</Link>
+            <Link className={classNames.login} to={paths.login}>Sign in</Link>
+            <Link className={classNames.signup} to={paths.signup}>Sign up</Link>
           </div>
         )
       }

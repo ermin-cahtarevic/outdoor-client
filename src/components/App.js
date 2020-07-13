@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 import Signup from '../containers/Signup';
 import Login from '../containers/Login';
 import Listing from './Listing';
+import Favourites from '../containers/Favourites';
 import '../styles/App.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
                 </Route>
                 <Route exact path="/listing">
                   <Listing />
+                </Route>
+                <Route exact path="/favourites">
+                  <Favourites />
                 </Route>
               </div>
             ) : (

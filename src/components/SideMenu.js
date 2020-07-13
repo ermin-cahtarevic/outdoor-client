@@ -15,12 +15,14 @@ const SideMenu = props => {
     home: '/',
     login: '/login',
     signup: '/signup',
+    favourites: '/favourites',
   }
 
   const classNames = {
     home: 'menu-item',
     login: 'menu-item',
     signup: 'menu-item',
+    favourites: 'menu-item',
   }
 
   const current = Object.keys(paths).filter(x => paths[x] === location.pathname);
@@ -34,7 +36,7 @@ const SideMenu = props => {
           <div className="side-menu-auth">
             <div className="side-menu-auth-top">
               <Link className={classNames.home} to={paths.home}>Home</Link>
-              <Link className={classNames.login} to={'/'}>Favourites</Link>
+              <Link className={classNames.favourites} to={paths.favourites}>Favourites</Link>
             </div>
             <div className="side-menu-auth-bottom">
               <button className="side-menu-logout" onClick={props.handleLogout}>Logout</button>

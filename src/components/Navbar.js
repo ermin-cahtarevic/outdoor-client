@@ -13,23 +13,29 @@ const Navbar = () => {
     store.dispatch({
       type: 'LOGOUT_SUCCESS',
     });
-  }
+  };
 
-  let classListMenu =  menuOpen ? 'bars-menu nav-icon4 open' : 'bars-menu nav-icon4'
+  const classListMenu = menuOpen ? 'bars-menu nav-icon4 open' : 'bars-menu nav-icon4';
 
   const handleMenuToggle = () => {
-    toggleMenuOpen(!menuOpen)
-  }
+    toggleMenuOpen(!menuOpen);
+  };
 
   return (
     <div className="navbar">
       <Link to="/" className="logo">
         <h2>Outdoor App</h2>
       </Link>
-      <div className={classListMenu} onClick={handleMenuToggle}>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div
+        className={classListMenu}
+        onClick={handleMenuToggle}
+        onKeyDown={handleMenuToggle}
+        role="button"
+        tabIndex={0}
+      >
+        <span />
+        <span />
+        <span />
       </div>
       <SideMenu
         isAuth={state.auth.isAuth}
@@ -38,6 +44,6 @@ const Navbar = () => {
       />
     </div>
   );
-}
+};
 
 export default Navbar;

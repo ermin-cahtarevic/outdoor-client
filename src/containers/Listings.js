@@ -6,8 +6,8 @@ import { fetchListings } from '../actions/fetchListings';
 import ListingItem from '../components/ListingItem';
 
 import '../styles/Listings.css';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Listings = ({ listings }) => {
   const dispatch = useDispatch();
@@ -17,21 +17,22 @@ const Listings = ({ listings }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="listings-list">
-      
+
       {
         listings.listings.length > 0 ? (
-          <Slider { ...settings }>
-          {
+          <Slider {...settings}>
+            {
           listings.listings.map(listing => (
             <div key={listing.id}>
               <ListingItem listing={listing} />
             </div>
-            ))
+          ))
           }
           </Slider>
         ) : <div>Loading...</div>

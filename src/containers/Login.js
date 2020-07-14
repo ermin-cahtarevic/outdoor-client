@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { loginUser } from '../actions/auth';
 import Navbar from '../components/Navbar';
 import '../styles/Login.css';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
   const initialInputState = {

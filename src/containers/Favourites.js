@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
+import Proptypes from 'prop-types';
 import Navbar from '../components/Navbar';
 import { fetchFavourites } from '../actions/favourites';
 import FavouriteListingItem from '../components/FavouriteListingItem';
@@ -10,7 +11,7 @@ const Favourites = ({ favourites }) => {
   useEffect(() => {
     fetchFavourites()(dispatch);
   }, [favourites.favourites.length, dispatch]);
-  
+
   return (
     <div>
       <Navbar />
@@ -28,5 +29,9 @@ const Favourites = ({ favourites }) => {
 const mapStateToProps = ({ favourites }) => ({
   favourites,
 });
+
+Favourites.propTypes = {
+  favourites: Proptypes.instanceOf(Object).isRequired,
+};
 
 export default connect(mapStateToProps)(Favourites);

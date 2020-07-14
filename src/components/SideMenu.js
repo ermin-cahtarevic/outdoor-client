@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Proptypes from 'prop-types';
 import '../styles/SideMenu.css';
 
-const SideMenu = props => {
+const SideMenu = ({ sideMenuOpen, isAuth, handleLogout }) => {
   let menuClasses = 'side-menu';
 
-  if (props.sideMenuOpen) {
-    menuClasses = 'side-menu open'
+  if (sideMenuOpen) {
+    menuClasses = 'side-menu open';
   }
 
   const location = useLocation();
@@ -16,14 +17,14 @@ const SideMenu = props => {
     login: '/login',
     signup: '/signup',
     favourites: '/favourites',
-  }
+  };
 
   const classNames = {
     home: 'menu-item',
     login: 'menu-item',
     signup: 'menu-item',
     favourites: 'menu-item',
-  }
+  };
 
   const current = Object.keys(paths).filter(x => paths[x] === location.pathname);
   classNames[current] = 'menu-item active';
@@ -32,14 +33,14 @@ const SideMenu = props => {
     <div className={menuClasses}>
       <h3>Outdoor App</h3>
       {
-        props.isAuth ? (
+        isAuth ? (
           <div className="side-menu-auth">
             <div className="side-menu-auth-top">
               <Link className={classNames.home} to={paths.home}>Home</Link>
               <Link className={classNames.favourites} to={paths.favourites}>Favourites</Link>
             </div>
             <div className="side-menu-auth-bottom">
-              <button className="side-menu-logout" onClick={props.handleLogout}>Logout</button>
+              <button className="side-menu-logout" onClick={handleLogout}>Logout</button>
             </div>
           </div>
         ) : (
@@ -52,6 +53,12 @@ const SideMenu = props => {
       }
     </div>
   );
-}
+};
+
+SideMenu.propTypes = {
+  sideMenuOpen: Proptypes.bool.isRequired,
+  isAuth: Proptypes.bool.isRequired,
+  handleLogout: Proptypes.func.isRequired,
+};
 
 export default SideMenu;

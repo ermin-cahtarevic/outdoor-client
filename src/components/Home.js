@@ -23,7 +23,10 @@ const Home = () => (
     <footer>
       <h2 className="footer-logo">Outdoor App</h2>
       <div className="footer-text">
-        Developed by <a href="https://ermin.dev" className="footer-link">Ermin Cahtarevic</a>. 2020.
+        Developed by
+        {' '}
+        <a href="https://ermin.dev" className="footer-link">Ermin Cahtarevic</a>
+        . 2020.
       </div>
     </footer>
   </div>

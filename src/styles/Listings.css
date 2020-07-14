@@ -15,8 +15,8 @@ div.slick-list {
 .slick-slide div:focus,
 .slick-slide div div:focus,
 .slick-slide.slick-active.slick-current > div:focus,
-.slick-slide.slick-active.slick-current div > div:focus,
 .slick-slide.slick-active.slick-current > div:visited,
+.slick-slide.slick-active.slick-current div > div:focus,
 .slick-slide.slick-active.slick-current div > div:visited {
   outline: none;
 }
@@ -43,13 +43,13 @@ button.slick-next {
 
 button.slick-prev:hover,
 button.slick-prev:focus,
-button.slick-next:hover, 
+button.slick-next:hover,
 button.slick-next:focus {
   background-color: white;
 }
 
-button.slick-prev:before, 
-button.slick-next:before {
+button.slick-prev::before,
+button.slick-next::before {
   color: rgb(182, 182, 182);
   font-size: 28px;
 }

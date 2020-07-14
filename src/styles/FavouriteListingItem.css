@@ -40,6 +40,10 @@
   display: inline-block;
 }
 
+.tooltip:focus {
+  outline: none;
+}
+
 .tooltiptext {
   visibility: hidden;
   width: 140px;

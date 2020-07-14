@@ -5,9 +5,8 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Signup from '../containers/Signup';
 import Login from '../containers/Login';
-import Listing from './Listing';
+import Listing from '../containers/Listing';
 import Favourites from '../containers/Favourites';
-import '../styles/App.css';
 
 function App() {
   const isAuth = useSelector(store => store.auth.isAuth);
@@ -22,7 +21,7 @@ function App() {
                 <Route exact path="/">
                   <Dashboard />
                 </Route>
-                <Route exact path="/listing">
+                <Route exact path="/listing/:id">
                   <Listing />
                 </Route>
                 <Route exact path="/favourites">

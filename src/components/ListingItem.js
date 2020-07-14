@@ -1,18 +1,23 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
 import Proptypes from 'prop-types';
-import '../styles/Listing.css';
-import { addFavourite } from '../actions/favourites';
+import { useHistory } from 'react-router';
+import '../styles/ListingItem.css';
 
 const ListingItem = ({ listing }) => {
-  const handleAddFavourite = () => {
-    addFavourite(listing.id);
-  };
+  const history = useHistory();
+  const showListing = id => history.push(`/listing/${id}`);
 
   return (
     <div className="listing-item">
       <img src="https://images.unsplash.com/photo-1522609163202-be0734d421e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="mountain" className="listing-img" />
-      <div className="listing-text">
+      <div
+        className="listing-text"
+        onClick={() => showListing(listing.id)}
+        onKeyDown={() => showListing(listing.id)}
+        role="button"
+        tabIndex={0}
+      >
         <div className="listing-text-left">
           <h3>{listing.title}</h3>
           <StarRatings
@@ -24,9 +29,8 @@ const ListingItem = ({ listing }) => {
           />
         </div>
         <div className="listing-text-right">
-          <div>$75</div>
+          <div>$ 75</div>
           <span>per person</span>
-          <button onClick={handleAddFavourite}>Fav</button>
         </div>
       </div>
     </div>

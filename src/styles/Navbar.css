@@ -67,6 +67,10 @@
   cursor: pointer;
 }
 
+.nav-icon4:focus {
+  outline: none;
+}
+
 .nav-icon4.open {
   width: 30px;
   height: 30px;

@@ -59,7 +59,8 @@ const Listing = ({ listings, match }) => {
         </div>
       </div>
       <div className="listing-details-body">
-        {data.title}
+        <h4>{data.title}</h4>
+        <p>{data.description}</p>
       </div>
       <div className="listing-details-favourite">
         {

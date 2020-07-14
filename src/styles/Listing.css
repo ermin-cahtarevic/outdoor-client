@@ -73,6 +73,19 @@
   color: rgb(193, 193, 193);
 }
 
+.listing-details-body {
+  padding: 10px 50px;
+}
+
+.listing-details-body h4 {
+  font-weight: 400;
+}
+
+.listing-details-body p {
+  font-size: 15px;
+  color: rgb(92, 92, 92);
+}
+
 .listing-details-favourite {
   position: fixed;
   bottom: 0;

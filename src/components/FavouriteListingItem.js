@@ -6,16 +6,26 @@ import Proptypes from 'prop-types';
 import '../styles/FavouriteListingItem.css';
 import { useDispatch } from 'react-redux';
 import { removeFavourite } from '../actions/favourites';
+import { useHistory } from 'react-router';
 
 const FavouriteListingItem = ({ listing }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleRemoveFavourite = () => {
     removeFavourite(listing.id)(dispatch);
   };
 
+  const showListing = id => history.push(`/listing/${id}`);
+
   return (
-    <div className="favourite-listing-item">
+    <div
+      className="favourite-listing-item"
+      onClick={() => showListing(listing.id)}
+      onKeyDown={() => showListing(listing.id)}
+      role="button"
+      tabIndex={0}
+    >
       <div>
         <img className="favourite-listing-item-img" src={listing.image} alt={listing.title} />
       </div>

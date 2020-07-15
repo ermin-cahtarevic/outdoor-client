@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useStore } from 'react-redux';
 import SideMenu from './SideMenu';
@@ -8,11 +8,13 @@ const Navbar = () => {
   const [menuOpen, toggleMenuOpen] = useState(false);
   const store = useStore();
   const state = store.getState();
+  const history = useHistory();
 
   const handleLogout = () => {
     store.dispatch({
       type: 'LOGOUT_SUCCESS',
     });
+    history.push('/');
   };
 
   const classListMenu = menuOpen ? 'bars-menu nav-icon4 open' : 'bars-menu nav-icon4';

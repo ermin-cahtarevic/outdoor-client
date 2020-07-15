@@ -1,5 +1,6 @@
 const GET_LISTINGS = 'GET_LISTINGS';
 const GET_LISTING = 'GET_LISTING';
+const CLEAR_LISTING = 'CLEAR_LISTING';
 const GET_FAVOURITES = 'GET_FAVOURITES';
 const DELETE_FAVOURITE = 'DELETE_FAVOURITE';
 const SWITCH_IS_FAVOURITE = 'SWITCH_IS_FAVOURITE';
@@ -12,6 +13,10 @@ const getListings = listings => ({
 const getListing = listing => ({
   type: GET_LISTING,
   payload: listing,
+});
+
+const clearListing = () => ({
+  type: CLEAR_LISTING,
 });
 
 const getFavourites = favourites => ({
@@ -29,5 +34,5 @@ const switchIsFavourite = () => ({
 });
 
 export { 
-  getListings, getListing, getFavourites, deleteFavourite, switchIsFavourite,
+  getListings, getListing, clearListing, getFavourites, deleteFavourite, switchIsFavourite,
 };

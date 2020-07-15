@@ -1,5 +1,6 @@
 const GET_LISTINGS = 'GET_LISTINGS';
 const GET_LISTING = 'GET_LISTING';
+const CLEAR_LISTING = 'CLEAR_LISTING';
 const SWITCH_IS_FAVOURITE = 'SWITCH_IS_FAVOURITE';
 
 const initialState = {
@@ -23,6 +24,14 @@ const listingsReducer = (state = initialState, action) => {
         listing: {
           data: {...action.payload.listing},
           isFav: action.payload.isFavourite,
+        },
+      };
+    case CLEAR_LISTING:
+      return {
+        ...state,
+        listing: {
+          data: {},
+          isFav: false,
         },
       };
     case SWITCH_IS_FAVOURITE: {

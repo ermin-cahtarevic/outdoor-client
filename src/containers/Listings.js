@@ -8,10 +8,16 @@ import ListingItem from '../components/ListingItem';
 import '../styles/Listings.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { clearListing } from '../actions';
 
 const Listings = ({ listings }) => {
   const dispatch = useDispatch();
-  useEffect(() => { fetchListings()(dispatch); }, [listings.length, dispatch]);
+  useEffect(() => { 
+    fetchListings()(dispatch);
+    if (listings.listing.data.id) {
+      dispatch(clearListing());
+    }
+  }, [listings.length, listings.listing.data.id, dispatch]);
 
   const settings = {
     infinite: true,

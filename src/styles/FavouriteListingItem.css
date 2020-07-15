@@ -5,6 +5,14 @@
   border-radius: 7px;
 }
 
+.favourite-listing-item:hover {
+  cursor: pointer;
+}
+
+.favourite-listing-item:focus {
+  outline: none;
+}
+
 .favourite-listing-item-img {
   width: 100%;
   height: 200px;

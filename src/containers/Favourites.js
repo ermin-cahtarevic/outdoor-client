@@ -5,12 +5,17 @@ import Navbar from '../components/Navbar';
 import { fetchFavourites } from '../actions/favourites';
 import FavouriteListingItem from '../components/FavouriteListingItem';
 import '../styles/Favourites.css';
+import { clearListing } from '../actions';
 
-const Favourites = ({ favourites }) => {
+const Favourites = ({ favourites, listings }) => {
   const dispatch = useDispatch();
+  
   useEffect(() => {
     fetchFavourites()(dispatch);
-  }, [favourites.favourites.length, dispatch]);
+    if (listings.listing.data.id) {
+      dispatch(clearListing());
+    }
+  }, [favourites.favourites.length, listings.listing.data.id, dispatch]);
 
   return (
     <div>
@@ -26,8 +31,9 @@ const Favourites = ({ favourites }) => {
   );
 };
 
-const mapStateToProps = ({ favourites }) => ({
+const mapStateToProps = ({ favourites, listings }) => ({
   favourites,
+  listings,
 });
 
 Favourites.propTypes = {

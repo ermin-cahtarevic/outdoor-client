@@ -14,7 +14,6 @@ export const fetchListingDetails = id => dispatch => {
       },
     },
   ).then(res => {
-    console.log(res.data);
     dispatch(getListing(res.data))
   });
 };

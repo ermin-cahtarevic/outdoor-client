@@ -10,7 +10,7 @@ const ListingItem = ({ listing }) => {
 
   return (
     <div className="listing-item">
-      <img src="https://images.unsplash.com/photo-1522609163202-be0734d421e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="mountain" className="listing-img" />
+      <img src={listing.image} alt={listing.title} className="listing-img" />
       <div
         className="listing-text"
         onClick={() => showListing(listing.id)}
@@ -21,7 +21,7 @@ const ListingItem = ({ listing }) => {
         <div className="listing-text-left">
           <h3>{listing.title}</h3>
           <StarRatings
-            rating={3.5}
+            rating={parseFloat(listing.rating)}
             starDimension="20px"
             starSpacing="1px"
             starRatedColor="#d4af37"
@@ -29,7 +29,7 @@ const ListingItem = ({ listing }) => {
           />
         </div>
         <div className="listing-text-right">
-          <div>$ 75</div>
+          <div>$ {listing.price}</div>
           <span>per person</span>
         </div>
       </div>

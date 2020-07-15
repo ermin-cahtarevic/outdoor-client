@@ -3,3 +3,8 @@
   flex-wrap: wrap;
   padding: 25px 10px;
 }
+
+.favourite-listings-list .loader-wrap {
+  height: calc(100vh - 120px);
+  width: 100%;
+}

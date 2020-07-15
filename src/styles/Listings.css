@@ -3,6 +3,13 @@
   width: 100%;
 }
 
+.loader-wrap {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .listings-list > div {
   width: 100%;
   margin: 0 auto;

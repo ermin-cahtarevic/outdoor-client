@@ -19,7 +19,7 @@
 .listing-text {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   height: auto;
   padding: 0 10px;
   flex-grow: 1;
@@ -33,18 +33,19 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .listing-text-left h3 {
   font-size: 18px;
   font-weight: 300;
   color: rgb(93, 93, 93);
-  margin-bottom: 10px;
+  margin: 18px 5px 10px 0;
   text-align: left;
 }
 
 .listing-text-right div {
+  padding-top: 18px;
   font-weight: 600;
   font-size: 19px;
 }

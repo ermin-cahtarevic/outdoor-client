@@ -17,13 +17,13 @@ const FavouriteListingItem = ({ listing }) => {
   return (
     <div className="favourite-listing-item">
       <div>
-        <img className="favourite-listing-item-img" src="https://images.unsplash.com/photo-1522609163202-be0734d421e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="random img" />
+        <img className="favourite-listing-item-img" src={listing.image} alt={listing.title} />
       </div>
       <div className="favourite-listing-item-body">
         <h3>{listing.title}</h3>
         <div className="favourite-listing-item-body-icons">
           <StarRatings
-            rating={3.5}
+            rating={parseFloat(listing.rating)}
             starDimension="15px"
             starSpacing="1px"
             starRatedColor="#d4af37"

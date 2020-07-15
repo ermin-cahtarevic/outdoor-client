@@ -1,6 +1,6 @@
 .favourite-listing-item {
-  width: calc(50% - 20px);
-  margin: 10px;
+  width: 80%;
+  margin: 10px auto;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.6);
   border-radius: 7px;
 }

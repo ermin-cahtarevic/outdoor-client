@@ -33,11 +33,13 @@
 }
 
 .login-page-main form {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding: 0 10px 15px;
 }
 
 .login-input,
@@ -92,4 +94,25 @@
 
 .auth-redirect:hover {
   color: rgb(93, 93, 93);
+}
+
+.login-loading-cover {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.login-loading-cover.open {
+  display: flex;
+}
+
+.error {
+  color: red;
 }

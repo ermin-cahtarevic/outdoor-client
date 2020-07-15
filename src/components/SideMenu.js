@@ -57,8 +57,12 @@ const SideMenu = ({ sideMenuOpen, isAuth, handleLogout }) => {
 
 SideMenu.propTypes = {
   sideMenuOpen: Proptypes.bool.isRequired,
-  isAuth: Proptypes.bool.isRequired,
+  isAuth: Proptypes.bool,
   handleLogout: Proptypes.func.isRequired,
+};
+
+SideMenu.defaultProps = {
+  isAuth: false,
 };
 
 export default SideMenu;

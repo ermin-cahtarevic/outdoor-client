@@ -4,6 +4,9 @@ const CLEAR_LISTING = 'CLEAR_LISTING';
 const GET_FAVOURITES = 'GET_FAVOURITES';
 const DELETE_FAVOURITE = 'DELETE_FAVOURITE';
 const SWITCH_IS_FAVOURITE = 'SWITCH_IS_FAVOURITE';
+const ADD_LOGIN_ERROR = 'ADD_LOGIN_ERROR';
+const ADD_SIGNUP_ERROR = 'ADD_SIGNUP_ERROR';
+const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
 const getListings = listings => ({
   type: GET_LISTINGS,
@@ -33,6 +36,22 @@ const switchIsFavourite = () => ({
   type: SWITCH_IS_FAVOURITE,
 });
 
+const addLoginError = error => ({
+  type: ADD_LOGIN_ERROR,
+  payload: error
+});
+
+const addSignupError = error => ({
+  type: ADD_SIGNUP_ERROR,
+  payload: error
+});
+
+
+const removeErrors = () => ({
+  type: REMOVE_ERRORS,
+})
+
 export { 
   getListings, getListing, clearListing, getFavourites, deleteFavourite, switchIsFavourite,
+  addLoginError, addSignupError, removeErrors,
 };

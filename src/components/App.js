@@ -12,7 +12,7 @@ function App() {
   const isAuth = useSelector(store => store.auth.isAuth);
 
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Switch>
           {

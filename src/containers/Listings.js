@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import Proptypes from 'prop-types';
 import Slider from 'react-slick';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 import { fetchListings } from '../actions/fetchListings';
 import ListingItem from '../components/ListingItem';
 import { clearListing } from '../actions';

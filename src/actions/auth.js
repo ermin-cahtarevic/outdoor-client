@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { addSignupError, addLoginError } from '.';
 
 const urlSignup = 'https://outdoor-app-api.herokuapp.com/signup';
 const urlLogin = 'https://outdoor-app-api.herokuapp.com/auth/login';
@@ -15,6 +16,8 @@ export const signupUser = (user, history) => dispatch => {
       },
     });
     history.push('/');
+  }).catch(() => {
+    dispatch(addSignupError('Sign up successfully failed, please try again'));
   });
 };
 
@@ -30,5 +33,7 @@ export const loginUser = (user, history) => dispatch => {
       },
     });
     history.push('/');
+  }).catch(() => {
+    dispatch(addLoginError('* Email or password incorrect'));
   });
 };

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner'
 import { loginUser } from '../actions/auth';
 import Navbar from '../components/Navbar';
+
 import '../styles/Login.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import { removeErrors } from '../actions';
 
 const Login = () => {
   const initialInputState = {
@@ -12,10 +16,20 @@ const Login = () => {
     password: '',
   };
 
-  const [eachEntry, setEachEntry] = useState(initialInputState);
-  const { email, password } = eachEntry;
+  const error = useSelector(store => store.error);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const [eachEntry, setEachEntry] = useState(initialInputState);
+  const [loginCoverClass, setLoginCoverClass] = useState('login-loading-cover');
+  const [loginError, setLoginError] = useState(null);
+
+  const { email, password } = eachEntry;
+
+  useEffect(() => {
+    setLoginError(error.loginError);
+    setLoginCoverClass('login-loading-cover');
+  }, [error]);
 
   const handleChange = e => {
     setEachEntry({
@@ -26,6 +40,11 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    setLoginCoverClass('login-loading-cover open');
+    setLoginError(null);
+    dispatch(removeErrors());
+
     const user = {
       email,
       password,
@@ -63,11 +82,20 @@ const Login = () => {
               onChange={handleChange}
               required
             />
+            {
+              loginError && <div className="error">{loginError}</div>
+            }
             <input
               type="submit"
-              value="Login"
+              value="Sign in"
               className="login-btn"
             />
+            <div className={loginCoverClass}>
+              <Loader
+                type="Oval"
+                color="rgb(255, 75, 4)"
+              />
+            </div>
           </form>
           <Link className="auth-redirect" to="/signup">Sign up</Link>
         </div>

@@ -69,33 +69,35 @@ const Listing = ({ listings, match }) => {
           <div className="listing-deatils-page-wrap">
             <div className="listing-details-img-box">
               <img src={data.image} alt={data.title} className="listing-details-img" />
-              <div className="listing-details-text-on-image">
-                <div>
-                  <div className="listing-details-text-on-image-user">
-                    <IconContext.Provider value={{ className: 'user-icon', size: '45px' }}>
-                        <FaUser />
-                    </IconContext.Provider>
+              <div className="listing-details-text-on-image-wrap">
+                <div className="listing-details-text-on-image">
+                  <div>
+                    <div className="listing-details-text-on-image-user">
+                      <IconContext.Provider value={{ className: 'user-icon', size: '45px' }}>
+                          <FaUser />
+                      </IconContext.Provider>
+                    </div>
+                    <div className="listing-details-text-on-image-user-text">
+                      <h3>{data.host}</h3>
+                      {
+                        data.host_rating ? (
+                          <StarRatings
+                            rating={parseFloat(data.host_rating)}
+                            starDimension="15px"
+                            starSpacing="1px"
+                            starRatedColor="#d4af37"
+                            starEmptyColor="rgb(221, 221, 221)"
+                          />
+                        ) : (
+                          <span>Loading...</span>
+                        )
+                      }
+                    </div>
                   </div>
-                  <div className="listing-details-text-on-image-user-text">
-                    <h3>{data.host}</h3>
-                    {
-                      data.host_rating ? (
-                        <StarRatings
-                          rating={parseFloat(data.host_rating)}
-                          starDimension="15px"
-                          starSpacing="1px"
-                          starRatedColor="#d4af37"
-                          starEmptyColor="rgb(221, 221, 221)"
-                        />
-                      ) : (
-                        <span>Loading...</span>
-                      )
-                    }
+                  <div className="listing-details-text-on-image-pricing">
+                    <div>$ {data.price}</div>
+                    <p>per person</p>
                   </div>
-                </div>
-                <div className="listing-details-text-on-image-pricing">
-                  <div>$ {data.price}</div>
-                  <p>per person</p>
                 </div>
               </div>
             </div>

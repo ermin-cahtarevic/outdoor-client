@@ -57,15 +57,18 @@
   object-fit: cover;
 }
 
-.listing-details-text-on-image {
+.listing-details-text-on-image-wrap {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.listing-details-text-on-image {
   display: flex;
   justify-content: space-between;
   color: white;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
   padding: 0 25px 30px;
   box-sizing: border-box;
 }
@@ -190,4 +193,20 @@
 
 .listing-details-favourite button:focus {
   outline: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .listing-details-img  {
+    height: 700px;
+  }
+
+  .listing-details-text-on-image,
+  .listing-details-body {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .listing-details-text-on-image {
+    padding: 0 0 30px;
+  }
 }

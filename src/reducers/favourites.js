@@ -1,11 +1,7 @@
 const GET_FAVOURITES = 'GET_FAVOURITES';
 const DELETE_FAVOURITE = 'DELETE_FAVOURITE';
 
-const initialState = {
-  favourites: [],
-};
-
-const favouritesReducer = (state = initialState, action) => {
+const favouritesReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_FAVOURITES:
       return {

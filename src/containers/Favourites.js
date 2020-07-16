@@ -21,7 +21,7 @@ const Favourites = ({ favourites, listings }) => {
     if (listings.listing.data.id) {
       dispatch(clearListing());
     }
-  }, [favourites.favourites.length, listings.listing.data.id, dispatch]);
+  }, [favourites.favourites, listings.listing.data.id, dispatch]);
 
   return (
     <div>
@@ -35,10 +35,14 @@ const Favourites = ({ favourites, listings }) => {
           </div>
         }
         {
-          favourites.favourites.length > 0 ? (
-          favourites.favourites.map(listing => (
-            <FavouriteListingItem key={listing.id} listing={listing} />
-          ))
+          favourites.favourites ? (
+            favourites.favourites.length > 0 ? (
+              favourites.favourites.map(listing => (
+                <FavouriteListingItem key={listing.id} listing={listing} />
+              ))
+            ) : (
+              <div>No favourites found<br /> You can find listings on the Home page and add them to this list</div>
+            )
           ) : (
             <div className="loader-wrap">
               <Loader

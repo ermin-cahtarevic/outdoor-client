@@ -13,24 +13,31 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 const Favourites = ({ favourites, listings }) => {
   const dispatch = useDispatch();
 
-  const error = useSelector(store => store.error.fetchFavouritesError);
+  const error = useSelector(store => store.error);
+  const { fetchFavouritesError } = error;
+
+  const errorCheck = Object.keys(error).length;
+  const favCheck = Object.keys(favourites).length;
 
   useEffect(() => {
     dispatch(removeErrors());
+  }, [errorCheck, dispatch]);
+
+  useEffect(() => {
     fetchFavourites()(dispatch);
     if (listings.listing.data.id) {
       dispatch(clearListing());
     }
-  }, [favourites.favourites, listings.listing.data.id, dispatch]);
+  }, [favCheck, listings.listing.data.id, dispatch]);
 
   return (
     <div>
       <Navbar />
       <div className="favourite-listings-list">
         {
-          error &&
+          fetchFavouritesError &&
           <div className="error">
-            {error}
+            {fetchFavouritesError}
             <p>Please try reloading the page</p>
           </div>
         }

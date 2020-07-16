@@ -51,11 +51,11 @@ button.slick-next {
 }
 
 button.slick-prev {
-  left: 28px;
+  left: 7%;
 }
 
 button.slick-next {
-  right: 28px;
+  right: 7%;
 }
 
 button.slick-prev:hover,

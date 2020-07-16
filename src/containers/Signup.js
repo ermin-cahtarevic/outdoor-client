@@ -30,11 +30,16 @@ const Signup = () => {
   const [signupCoverClass, setSignupCoverClass] = useState('login-loading-cover');
   const [signupError, setSignupError] = useState(null);
 
+  const errorCheck = Object.keys(error).length;
+
   useEffect(() => {
     dispatch(removeErrors());
+  }, [errorCheck, dispatch]);
+
+  useEffect(() => {
     setSignupError(error.signupError);
     setSignupCoverClass('login-loading-cover');
-  }, [error, dispatch]);
+  }, [error]);
 
   const handleChange = e => {
     setEachEntry({

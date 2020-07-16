@@ -93,3 +93,10 @@
 .tooltip:visited .heart-icon {
   fill: none;
 }
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .favourite-listing-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}

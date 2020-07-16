@@ -43,12 +43,12 @@ const switchIsFavourite = () => ({
 
 const addLoginError = error => ({
   type: ADD_LOGIN_ERROR,
-  payload: error
+  payload: error,
 });
 
 const addSignupError = error => ({
   type: ADD_SIGNUP_ERROR,
-  payload: error
+  payload: error,
 });
 
 const fetchListingsError = error => ({
@@ -80,7 +80,7 @@ const removeErrors = () => ({
   type: REMOVE_ERRORS,
 });
 
-export { 
+export {
   getListings, getListing, clearListing, getFavourites, deleteFavourite, switchIsFavourite,
   addLoginError, addSignupError, fetchListingsError, fetchListingError, fetchFavouritesError,
   addFavouriteError, removeFavouriteError, removeErrors,

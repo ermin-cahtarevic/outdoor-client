@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { getFavourites, deleteFavourite, fetchFavouritesError, addFavouriteError, removeFavouriteError } from '.';
+import {
+  getFavourites, deleteFavourite, fetchFavouritesError, addFavouriteError, removeFavouriteError,
+} from '.';
 
 const urlFavourites = 'https://outdoor-app-api.herokuapp.com/favourites';
 const token = localStorage.getItem('token');

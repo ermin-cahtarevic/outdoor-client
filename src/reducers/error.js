@@ -40,7 +40,7 @@ const errorReducer = (state = {}, action) => {
     case REMOVE_ERRORS:
       return {};
     default: return state;
-  };
+  }
 };
 
 export default errorReducer;

@@ -29,7 +29,10 @@ const ListingItem = ({ listing }) => {
           />
         </div>
         <div className="listing-text-right">
-          <div>$ {listing.price}</div>
+          <div>
+            $
+            {listing.price}
+          </div>
           <span>per person</span>
         </div>
       </div>

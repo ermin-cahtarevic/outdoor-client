@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
 import Proptypes from 'prop-types';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 import Navbar from '../components/Navbar';
 import { fetchFavourites } from '../actions/favourites';
 import FavouriteListingItem from '../components/FavouriteListingItem';
@@ -30,16 +30,19 @@ const Favourites = ({ favourites, listings }) => {
     }
   }, [favCheck, listings.listing.data.id, dispatch]);
 
+  /* eslint-disable no-nested-ternary */
   return (
     <div>
       <Navbar />
       <div className="favourite-listings-list">
         {
-          fetchFavouritesError &&
+          fetchFavouritesError
+          && (
           <div className="error">
             {fetchFavouritesError}
             <p>Please try reloading the page</p>
           </div>
+          )
         }
         {
           favourites.favourites ? (
@@ -48,7 +51,12 @@ const Favourites = ({ favourites, listings }) => {
                 <FavouriteListingItem key={listing.id} listing={listing} />
               ))
             ) : (
-              <div>No favourites found<br /> You can find listings on the Home page and add them to this list</div>
+              <div>
+                No favourites found
+                <br />
+                {' '}
+                You can find listings on the Home page and add them to this list
+              </div>
             )
           ) : (
             <div className="loader-wrap">
@@ -71,6 +79,7 @@ const mapStateToProps = ({ favourites, listings }) => ({
 
 Favourites.propTypes = {
   favourites: Proptypes.instanceOf(Object).isRequired,
+  listings: Proptypes.instanceOf(Object).isRequired,
 };
 
 export default connect(mapStateToProps)(Favourites);

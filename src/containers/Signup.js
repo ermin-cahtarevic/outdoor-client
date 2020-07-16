@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 import { signupUser } from '../actions/auth';
 import Navbar from '../components/Navbar';
 
@@ -51,7 +51,7 @@ const Signup = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    setSignupCoverClass('login-loading-cover open')
+    setSignupCoverClass('login-loading-cover open');
     setSignupError(null);
     dispatch(removeErrors());
 

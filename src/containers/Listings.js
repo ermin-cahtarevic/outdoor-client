@@ -17,7 +17,7 @@ const Listings = ({ listings }) => {
   const error = useSelector(store => store.error.fetchListingsError);
 
   useEffect(() => {
-    dispatch(removeErrors()); 
+    dispatch(removeErrors());
     fetchListings()(dispatch);
     if (listings.listing.data.id) {
       dispatch(clearListing());
@@ -34,26 +34,28 @@ const Listings = ({ listings }) => {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-        }
+        },
       },
       {
         breakpoint: 900,
         settings: {
           slidesToShow: 1,
-        }
+        },
       },
-    ]
+    ],
   };
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="listings-list">
-      { 
-        error && 
+      {
+        error
+        && (
         <div className="error">
           {error}
           <p>Please try reloading the page</p>
-        </div> 
+        </div>
+        )
       }
       {
         listings.listings.length > 0 ? (

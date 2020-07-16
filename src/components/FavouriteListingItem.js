@@ -5,8 +5,8 @@ import { IconContext } from 'react-icons';
 import Proptypes from 'prop-types';
 import '../styles/FavouriteListingItem.css';
 import { useDispatch } from 'react-redux';
-import { removeFavourite } from '../actions/favourites';
 import { useHistory } from 'react-router';
+import { removeFavourite } from '../actions/favourites';
 
 const FavouriteListingItem = ({ listing }) => {
   const dispatch = useDispatch();
@@ -24,14 +24,15 @@ const FavouriteListingItem = ({ listing }) => {
         <img className="favourite-listing-item-img" src={listing.image} alt={listing.title} />
       </div>
       <div className="favourite-listing-item-body">
-        <h3
-        onClick={() => showListing(listing.id)}
-        onKeyDown={() => showListing(listing.id)}
-        role="button"
-        tabIndex={0}
+        <div
+          className="h3"
+          onClick={() => showListing(listing.id)}
+          onKeyDown={() => showListing(listing.id)}
+          role="button"
+          tabIndex={0}
         >
           {listing.title}
-        </h3>
+        </div>
         <div className="favourite-listing-item-body-icons">
           <StarRatings
             rating={parseFloat(listing.rating)}

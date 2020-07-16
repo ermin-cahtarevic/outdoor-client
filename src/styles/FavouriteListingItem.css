@@ -22,19 +22,20 @@
   flex-direction: column;
 }
 
-.favourite-listing-item-body h3 {
+.favourite-listing-item-body .h3 {
   text-align: left;
   color: rgb(93, 93, 93);
   font-weight: 300;
-  margin-top: 10px;
+  font-size: 18px;
+  margin: 10px 0 15px;
 }
 
-.favourite-listing-item-body h3:hover {
+.favourite-listing-item-body .h3:hover {
   color: rgb(142, 142, 142);
   cursor: pointer;
 }
 
-.favourite-listing-item-body h3:focus {
+.favourite-listing-item-body .h3:focus {
   outline: none;
 }
 

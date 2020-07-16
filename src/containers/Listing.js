@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
+import Proptypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
 import { GoLocation } from 'react-icons/go';
 import { IconContext } from 'react-icons';
 import StarRatings from 'react-star-ratings';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 import Navbar from '../components/Navbar';
-import fetchListingDetails from '../actions/fetchListingDetails';
+import { fetchListingDetails } from '../actions/fetchListingDetails';
 import { addFavourite, removeFavourite } from '../actions/favourites';
 import { switchIsFavourite, removeErrors } from '../actions';
 
@@ -42,27 +43,31 @@ const Listing = ({ listings, match }) => {
 
   const handleReload = () => {
     window.location.reload();
-  }
+  };
 
   return (
     <div className="listing-deatils-page">
       <Navbar />
       {
-        fetchListingError &&
+        fetchListingError
+        && (
         <div className="error">
           {fetchListingError}
           <p>Please try reloading the page</p>
         </div>
+        )
       }
       {
-        addFavouriteError &&
+        addFavouriteError
+        && (
         <div className="error-modal-bg">
           <div className="error-modal">
             {addFavouriteError}
             <p>Please reload the page</p>
-            <button onClick={handleReload}>Reload</button>
+            <button type="button" onClick={handleReload}>Reload</button>
           </div>
         </div>
+        )
       }
       {
         data.id ? (
@@ -74,7 +79,7 @@ const Listing = ({ listings, match }) => {
                   <div>
                     <div className="listing-details-text-on-image-user">
                       <IconContext.Provider value={{ className: 'user-icon', size: '45px' }}>
-                          <FaUser />
+                        <FaUser />
                       </IconContext.Provider>
                     </div>
                     <div className="listing-details-text-on-image-user-text">
@@ -95,7 +100,10 @@ const Listing = ({ listings, match }) => {
                     </div>
                   </div>
                   <div className="listing-details-text-on-image-pricing">
-                    <div>$ {data.price}</div>
+                    <div>
+                      $
+                      {data.price}
+                    </div>
                     <p>per person</p>
                   </div>
                 </div>
@@ -103,8 +111,8 @@ const Listing = ({ listings, match }) => {
             </div>
             <div className="listing-details-body">
               <div className="listing-details-body-first-line">
-              <h4>{data.title}</h4>
-              {
+                <h4>{data.title}</h4>
+                {
                 data.rating ? (
                   <div>
                     <StarRatings
@@ -123,20 +131,22 @@ const Listing = ({ listings, match }) => {
               <p>{data.description}</p>
               <div className="listing-details-location">
                 <IconContext.Provider value={{ className: 'location-icon', size: '20px' }}>
-                    <GoLocation />
+                  <GoLocation />
                 </IconContext.Provider>
                 <span>{data.location}</span>
               </div>
             </div>
             <div className="listing-details-favourite">
-            {
-              isFav? (
-                <button onClick={() => handleRemoveFavourite(data.id)}>Remove from favourites</button>
+              {
+              isFav ? (
+                <button type="button" onClick={() => handleRemoveFavourite(data.id)}>
+                  Remove from favourites
+                </button>
               ) : (
-                <button onClick={() => handleAddFavourite(data.id)}>Add to favourites</button>
+                <button type="button" onClick={() => handleAddFavourite(data.id)}>Add to favourites</button>
               )
             }
-          </div>
+            </div>
           </div>
         ) : (
           <div className="loader-wrap">
@@ -148,11 +158,16 @@ const Listing = ({ listings, match }) => {
         )
       }
     </div>
-  )
+  );
 };
 
 const mapStateToProps = ({ listings }) => ({
   listings,
 });
+
+Listing.propTypes = {
+  match: Proptypes.instanceOf(Object).isRequired,
+  listings: Proptypes.instanceOf(Object).isRequired,
+};
 
 export default withRouter(connect(mapStateToProps)(Listing));

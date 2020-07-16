@@ -14,7 +14,7 @@ export const fetchListingDetails = id => dispatch => {
       },
     },
   ).then(res => {
-    dispatch(getListing(res.data))
+    dispatch(getListing(res.data));
   }).catch(err => {
     dispatch(fetchListingError(err.message));
   });

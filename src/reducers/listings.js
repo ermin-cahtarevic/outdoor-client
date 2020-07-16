@@ -22,7 +22,7 @@ const listingsReducer = (state = initialState, action) => {
       return {
         ...state,
         listing: {
-          data: {...action.payload.listing},
+          data: { ...action.payload.listing },
           isFav: action.payload.isFavourite,
         },
       };
@@ -35,14 +35,14 @@ const listingsReducer = (state = initialState, action) => {
         },
       };
     case SWITCH_IS_FAVOURITE: {
-      const isFav = state.listing.isFav;
+      const { isFav } = state.listing;
       return {
         ...state,
         listing: {
-          data: {...state.listing.data},
+          data: { ...state.listing.data },
           isFav: !isFav,
-        }
-      }
+        },
+      };
     }
     default: return state;
   }

@@ -40,7 +40,7 @@ const SideMenu = ({ sideMenuOpen, isAuth, handleLogout }) => {
               <Link className={classNames.favourites} to={paths.favourites}>Favourites</Link>
             </div>
             <div className="side-menu-auth-bottom">
-              <button className="side-menu-logout" onClick={handleLogout}>Logout</button>
+              <button type="button" className="side-menu-logout" onClick={handleLogout}>Logout</button>
             </div>
           </div>
         ) : (

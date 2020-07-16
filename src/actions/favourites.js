@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getFavourites, deleteFavourite } from '.';
+import { getFavourites, deleteFavourite, fetchFavouritesError, addFavouriteError, removeFavouriteError } from '.';
 
 const urlFavourites = 'https://outdoor-app-api.herokuapp.com/favourites';
 const token = localStorage.getItem('token');
@@ -14,10 +14,12 @@ export const fetchFavourites = () => dispatch => {
     },
   ).then(res => {
     dispatch(getFavourites(res.data));
+  }).catch(err => {
+    dispatch(fetchFavouritesError(err.message));
   });
 };
 
-export const addFavourite = id => {
+export const addFavourite = id => dispatch => {
   axios.post(
     urlFavourites,
     {
@@ -28,8 +30,8 @@ export const addFavourite = id => {
         Authorization: `Bearer ${token}`,
       },
     },
-  ).then(res => {
-    console.log(res.data);
+  ).catch(err => {
+    dispatch(addFavouriteError(err.message));
   });
 };
 
@@ -45,8 +47,10 @@ export const removeFavourite = id => dispatch => {
       },
     },
   ).then(res => {
-    if (res.data.message === 'Listing removed from favourites successfully') {
+    if (res.status === 200) {
       dispatch(deleteFavourite(id));
     }
+  }).catch(err => {
+    dispatch(removeFavouriteError(err.message));
   });
 };

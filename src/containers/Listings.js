@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import Proptypes from 'prop-types';
 import Slider from 'react-slick';
 import Loader from 'react-loader-spinner';
@@ -14,6 +14,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const Listings = ({ listings }) => {
   const dispatch = useDispatch();
+  const error = useSelector(store => store.error.fetchListingsError);
 
   useEffect(() => {
     dispatch(removeErrors()); 
@@ -33,7 +34,13 @@ const Listings = ({ listings }) => {
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div className="listings-list">
-
+      { 
+        error && 
+        <div className="error">
+          {error}
+          <p>Please try reloading the page</p>
+        </div> 
+      }
       {
         listings.listings.length > 0 ? (
           <Slider {...settings}>

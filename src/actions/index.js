@@ -6,6 +6,11 @@ const DELETE_FAVOURITE = 'DELETE_FAVOURITE';
 const SWITCH_IS_FAVOURITE = 'SWITCH_IS_FAVOURITE';
 const ADD_LOGIN_ERROR = 'ADD_LOGIN_ERROR';
 const ADD_SIGNUP_ERROR = 'ADD_SIGNUP_ERROR';
+const FETCH_LISTINGS_ERROR = 'FETCH_LISTINGS_ERROR';
+const FETCH_LISTING_ERROR = 'FETCH_LISTING_ERROR';
+const FETCH_FAVOURITES_ERROR = 'FETCH_FAVOURITES_ERROR';
+const ADD_FAVOURITE_ERROR = 'ADD_FAVOURITE_ERROR';
+const REMOVE_FAVOURITE_ERROR = 'REMOVE_FAVOURITE_ERROR';
 const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
 const getListings = listings => ({
@@ -46,12 +51,37 @@ const addSignupError = error => ({
   payload: error
 });
 
+const fetchListingsError = error => ({
+  type: FETCH_LISTINGS_ERROR,
+  payload: error,
+});
+
+const fetchListingError = error => ({
+  type: FETCH_LISTING_ERROR,
+  payload: error,
+});
+
+const fetchFavouritesError = error => ({
+  type: FETCH_FAVOURITES_ERROR,
+  payload: error,
+});
+
+const addFavouriteError = error => ({
+  type: ADD_FAVOURITE_ERROR,
+  payload: error,
+});
+
+const removeFavouriteError = error => ({
+  type: REMOVE_FAVOURITE_ERROR,
+  payload: error,
+});
 
 const removeErrors = () => ({
   type: REMOVE_ERRORS,
-})
+});
 
 export { 
   getListings, getListing, clearListing, getFavourites, deleteFavourite, switchIsFavourite,
-  addLoginError, addSignupError, removeErrors,
+  addLoginError, addSignupError, fetchListingsError, fetchListingError, fetchFavouritesError,
+  addFavouriteError, removeFavouriteError, removeErrors,
 };

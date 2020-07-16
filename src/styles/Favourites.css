@@ -2,6 +2,18 @@
   display: flex;
   flex-wrap: wrap;
   padding: 25px 10px;
+  position: relative;
+}
+
+.favourite-listings-list .error {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.favourite-listings-list .error p {
+  color: black;
 }
 
 .favourite-listings-list .loader-wrap {

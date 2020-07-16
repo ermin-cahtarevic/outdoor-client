@@ -1,6 +1,16 @@
 .listings-list {
   display: flex;
   width: 100%;
+  position: relative;
+}
+
+.listings-list .error {
+  position: absolute;
+  top: 40px;
+}
+
+.listings-list .error p {
+  color: black;
 }
 
 .loader-wrap {

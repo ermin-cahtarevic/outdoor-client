@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import Proptypes from 'prop-types';
 import Loader from 'react-loader-spinner'
 import Navbar from '../components/Navbar';
 import { fetchFavourites } from '../actions/favourites';
 import FavouriteListingItem from '../components/FavouriteListingItem';
-import { clearListing } from '../actions';
+import { clearListing, removeErrors } from '../actions';
 
 import '../styles/Favourites.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -13,7 +13,10 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 const Favourites = ({ favourites, listings }) => {
   const dispatch = useDispatch();
 
+  const error = useSelector(store => store.error.fetchFavouritesError);
+
   useEffect(() => {
+    dispatch(removeErrors());
     fetchFavourites()(dispatch);
     if (listings.listing.data.id) {
       dispatch(clearListing());
@@ -24,6 +27,13 @@ const Favourites = ({ favourites, listings }) => {
     <div>
       <Navbar />
       <div className="favourite-listings-list">
+        {
+          error &&
+          <div className="error">
+            {error}
+            <p>Please try reloading the page</p>
+          </div>
+        }
         {
           favourites.favourites.length > 0 ? (
           favourites.favourites.map(listing => (

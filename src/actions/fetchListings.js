@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getListings } from '.';
+import { getListings, fetchListingsError } from '.';
 
 const url = 'https://outdoor-app-api.herokuapp.com/listings';
 
@@ -15,6 +15,8 @@ export const fetchListings = () => dispatch => {
     },
   ).then(res => {
     dispatch(getListings(res.data));
+  }).catch(err => {
+    dispatch(fetchListingsError(err.message));
   });
 };
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { FaUser } from 'react-icons/fa';
 import { GoLocation } from 'react-icons/go';
 import { IconContext } from 'react-icons';
@@ -9,7 +9,7 @@ import Loader from 'react-loader-spinner'
 import Navbar from '../components/Navbar';
 import fetchListingDetails from '../actions/fetchListingDetails';
 import { addFavourite, removeFavourite } from '../actions/favourites';
-import { switchIsFavourite } from '../actions';
+import { switchIsFavourite, removeErrors } from '../actions';
 
 import '../styles/Listing.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -19,12 +19,19 @@ const Listing = ({ listings, match }) => {
   const { data, isFav } = listings.listing;
   const dispatch = useDispatch();
 
+  const { fetchListingError, addFavouriteError } = useSelector(store => store.error);
+
   useEffect(() => {
+    dispatch(switchIsFavourite());
+  }, [addFavouriteError, dispatch]);
+
+  useEffect(() => {
+    dispatch(removeErrors());
     fetchListingDetails(id)(dispatch);
   }, [id, dispatch]);
 
   const handleAddFavourite = id => {
-    addFavourite(id);
+    addFavourite(id)(dispatch);
     dispatch(switchIsFavourite());
   };
 
@@ -33,9 +40,30 @@ const Listing = ({ listings, match }) => {
     dispatch(switchIsFavourite());
   };
 
+  const handleReload = () => {
+    window.location.reload();
+  }
+
   return (
     <div className="listing-deatils-page">
       <Navbar />
+      {
+        fetchListingError &&
+        <div className="error">
+          {fetchListingError}
+          <p>Please try reloading the page</p>
+        </div>
+      }
+      {
+        addFavouriteError &&
+        <div className="error-modal-bg">
+          <div className="error-modal">
+            {addFavouriteError}
+            <p>Please reload the page</p>
+            <button onClick={handleReload}>Reload</button>
+          </div>
+        </div>
+      }
       {
         data.id ? (
           <div className="listing-deatils-page-wrap">

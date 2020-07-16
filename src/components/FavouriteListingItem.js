@@ -19,18 +19,19 @@ const FavouriteListingItem = ({ listing }) => {
   const showListing = id => history.push(`/listing/${id}`);
 
   return (
-    <div
-      className="favourite-listing-item"
-      onClick={() => showListing(listing.id)}
-      onKeyDown={() => showListing(listing.id)}
-      role="button"
-      tabIndex={0}
-    >
+    <div className="favourite-listing-item">
       <div>
         <img className="favourite-listing-item-img" src={listing.image} alt={listing.title} />
       </div>
       <div className="favourite-listing-item-body">
-        <h3>{listing.title}</h3>
+        <h3
+        onClick={() => showListing(listing.id)}
+        onKeyDown={() => showListing(listing.id)}
+        role="button"
+        tabIndex={0}
+        >
+          {listing.title}
+        </h3>
         <div className="favourite-listing-item-body-icons">
           <StarRatings
             rating={parseFloat(listing.rating)}

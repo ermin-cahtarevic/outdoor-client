@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import Loader from 'react-loader-spinner';
 import { fetchListings } from '../actions/fetchListings';
 import ListingItem from '../components/ListingItem';
-import { clearListing } from '../actions';
+import { clearListing, removeErrors } from '../actions';
 
 import '../styles/Listings.css';
 import 'slick-carousel/slick/slick.css';
@@ -14,7 +14,9 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const Listings = ({ listings }) => {
   const dispatch = useDispatch();
-  useEffect(() => { 
+
+  useEffect(() => {
+    dispatch(removeErrors()); 
     fetchListings()(dispatch);
     if (listings.listing.data.id) {
       dispatch(clearListing());

@@ -50,10 +50,7 @@ const Login = () => {
       password,
     };
     loginUser(user, history)(dispatch);
-    setEachEntry({
-      email: '',
-      password: '',
-    });
+    setEachEntry(initialInputState);
   };
 
   return (

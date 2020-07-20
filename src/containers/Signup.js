@@ -62,12 +62,7 @@ const Signup = () => {
       passwordConfirmation,
     };
     signupUser(user, history)(dispatch);
-    setEachEntry({
-      name: '',
-      email: '',
-      password: '',
-      passwordConfirmation: '',
-    });
+    setEachEntry(initialInputState);
   };
 
   return (

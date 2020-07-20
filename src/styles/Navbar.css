@@ -16,6 +16,30 @@
   color: rgb(92, 92, 92);
 }
 
+.go-back-btn {
+  border: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back-btn:hover {
+  cursor: pointer;
+  border-color: rgb(221, 221, 221);
+}
+
+.go-back-btn:focus {
+  outline: none;
+}
+
+.go-back-arrow {
+  font-size: 28px;
+  color: rgb(92, 92, 92);
+}
+
 .bars-menu {
   font-size: 20px;
   color: rgb(92, 92, 92);

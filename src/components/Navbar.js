@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import '../styles/Navbar.css';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useStore } from 'react-redux';
+import { IoIosArrowBack } from "react-icons/io";
 import SideMenu from './SideMenu';
+
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [menuOpen, toggleMenuOpen] = useState(false);
   const store = useStore();
   const state = store.getState();
   const history = useHistory();
+  const location = useLocation();
 
   const handleLogout = () => {
     store.dispatch({
@@ -23,11 +26,23 @@ const Navbar = () => {
     toggleMenuOpen(!menuOpen);
   };
 
+  const handleGoBack = () => {
+    history.goBack();
+  }
+
+  const locationCheck = location.pathname !== '/'
+
   return (
     <div className="navbar">
-      <Link to="/" className="logo">
-        <h2>Outdoor App</h2>
-      </Link>
+    {
+      locationCheck ? (
+        <button type="button" className="go-back-btn" onClick={handleGoBack}><IoIosArrowBack className="go-back-arrow" /></button>
+      ) : (
+        <Link to="/" className="logo">
+          <h2>Outdoor App</h2>
+        </Link>
+      )
+    }
       <div
         className={classListMenu}
         onClick={handleMenuToggle}

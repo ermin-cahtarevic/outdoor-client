@@ -14,7 +14,7 @@ const Navbar = () => {
     store.dispatch({
       type: 'LOGOUT_SUCCESS',
     });
-    history.push('/');
+    history.push('/login');
   };
 
   const classListMenu = menuOpen ? 'bars-menu nav-icon4 open' : 'bars-menu nav-icon4';

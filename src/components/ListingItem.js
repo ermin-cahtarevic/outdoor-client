@@ -9,15 +9,15 @@ const ListingItem = ({ listing }) => {
   const showListing = id => history.push(`/listing/${id}`);
 
   return (
-    <div className="listing-item">
+    <div
+      className="listing-item"
+      onClick={() => showListing(listing.id)}
+      onKeyDown={() => showListing(listing.id)}
+      role="button"
+      tabIndex={0}
+    >
       <img src={listing.image} alt={listing.title} className="listing-img" />
-      <div
-        className="listing-text"
-        onClick={() => showListing(listing.id)}
-        onKeyDown={() => showListing(listing.id)}
-        role="button"
-        tabIndex={0}
-      >
+      <div className="listing-text">
         <div className="listing-text-left">
           <h3>{listing.title}</h3>
           <StarRatings

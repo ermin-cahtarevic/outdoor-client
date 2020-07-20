@@ -13,75 +13,69 @@ const ADD_FAVOURITE_ERROR = 'ADD_FAVOURITE_ERROR';
 const REMOVE_FAVOURITE_ERROR = 'REMOVE_FAVOURITE_ERROR';
 const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
-const getListings = listings => ({
+export const getListings = listings => ({
   type: GET_LISTINGS,
   payload: listings,
 });
 
-const getListing = listing => ({
+export const getListing = listing => ({
   type: GET_LISTING,
   payload: listing,
 });
 
-const clearListing = () => ({
+export const clearListing = () => ({
   type: CLEAR_LISTING,
 });
 
-const getFavourites = favourites => ({
+export const getFavourites = favourites => ({
   type: GET_FAVOURITES,
   payload: favourites,
 });
 
-const deleteFavourite = id => ({
+export const deleteFavourite = id => ({
   type: DELETE_FAVOURITE,
   payload: id,
 });
 
-const switchIsFavourite = () => ({
+export const switchIsFavourite = () => ({
   type: SWITCH_IS_FAVOURITE,
 });
 
-const addLoginError = error => ({
+export const addLoginError = error => ({
   type: ADD_LOGIN_ERROR,
   payload: error,
 });
 
-const addSignupError = error => ({
+export const addSignupError = error => ({
   type: ADD_SIGNUP_ERROR,
   payload: error,
 });
 
-const fetchListingsError = error => ({
+export const fetchListingsError = error => ({
   type: FETCH_LISTINGS_ERROR,
   payload: error,
 });
 
-const fetchListingError = error => ({
+export const fetchListingError = error => ({
   type: FETCH_LISTING_ERROR,
   payload: error,
 });
 
-const fetchFavouritesError = error => ({
+export const fetchFavouritesError = error => ({
   type: FETCH_FAVOURITES_ERROR,
   payload: error,
 });
 
-const addFavouriteError = error => ({
+export const addFavouriteError = error => ({
   type: ADD_FAVOURITE_ERROR,
   payload: error,
 });
 
-const removeFavouriteError = error => ({
+export const removeFavouriteError = error => ({
   type: REMOVE_FAVOURITE_ERROR,
   payload: error,
 });
 
-const removeErrors = () => ({
+export const removeErrors = () => ({
   type: REMOVE_ERRORS,
 });
-
-export {
-  getListings, getListing, clearListing, getFavourites, deleteFavourite, switchIsFavourite,
-  addLoginError, addSignupError, fetchListingsError, fetchListingError, fetchFavouritesError,
-  addFavouriteError, removeFavouriteError, removeErrors,
-};

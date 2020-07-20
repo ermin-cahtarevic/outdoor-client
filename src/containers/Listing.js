@@ -14,6 +14,7 @@ import { switchIsFavourite, removeErrors } from '../actions';
 
 import '../styles/Listing.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Spacer from '../components/Spacer';
 
 const Listing = ({ listings, match }) => {
   const { params: { id } } = match;
@@ -48,6 +49,7 @@ const Listing = ({ listings, match }) => {
   return (
     <div className="listing-deatils-page">
       <Navbar />
+      <Spacer />
       {
         fetchListingError
         && (

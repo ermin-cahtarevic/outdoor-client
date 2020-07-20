@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import '../styles/Home.css';
+import Spacer from './Spacer';
 
 const Home = () => (
   <div className="home-page">
     <div className="home-top-section">
       <Navbar />
+      <Spacer />
       <h1>Find your perfect outdoor experience</h1>
       <h4>The best offers for you at any point of your journey</h4>
       <Link to="/signup" className="start-free">Start free</Link>

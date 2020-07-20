@@ -9,6 +9,7 @@ import { clearListing, removeErrors } from '../actions';
 
 import '../styles/Favourites.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Spacer from '../components/Spacer';
 
 const Favourites = ({ favourites, listings }) => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Favourites = ({ favourites, listings }) => {
   return (
     <div>
       <Navbar />
+      <Spacer />
       <div className="favourite-listings-list">
         {
           fetchFavouritesError

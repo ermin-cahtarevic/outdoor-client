@@ -1,0 +1,36 @@
+.favourite-listings-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 10px;
+  position: relative;
+}
+
+.favourite-listings-list .error {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.favourite-listings-list .error p {
+  color: black;
+}
+
+.favourite-listings-list .loader-wrap {
+  height: calc(100vh - 120px);
+  width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .favourite-listings-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .favourite-listings-list {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

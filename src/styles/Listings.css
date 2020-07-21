@@ -1,0 +1,89 @@
+.listings-list {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.listings-list .error {
+  position: absolute;
+  top: 40px;
+}
+
+.listings-list .error p {
+  color: black;
+}
+
+.loader-wrap {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listings-list > div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+div.slick-list {
+  width: 100%;
+}
+
+.slick-slide div:focus,
+.slick-slide div div:focus,
+.slick-slide.slick-active.slick-current > div:focus,
+.slick-slide.slick-active.slick-current > div:visited,
+.slick-slide.slick-active.slick-current div > div:focus,
+.slick-slide.slick-active.slick-current div > div:visited {
+  outline: none;
+}
+
+button.slick-arrow {
+  width: 27px;
+  height: 27px;
+}
+
+button.slick-prev,
+button.slick-next {
+  z-index: 99;
+  background-color: white;
+  border-radius: 100%;
+}
+
+button.slick-prev {
+  left: 7%;
+}
+
+button.slick-next {
+  right: 7%;
+}
+
+button.slick-prev:hover,
+button.slick-prev:focus,
+button.slick-next:hover,
+button.slick-next:focus {
+  background-color: white;
+}
+
+button.slick-prev::before,
+button.slick-next::before {
+  color: rgb(182, 182, 182);
+  font-size: 28px;
+}
+
+@media only screen and (min-width: 900px) {
+  button.slick-prev {
+    left: 3%;
+  }
+
+  button.slick-next {
+    right: 3%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .listings-list {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

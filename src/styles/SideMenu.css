@@ -1,0 +1,101 @@
+.side-menu {
+  position: fixed;
+  height: 100vh;
+  width: 70%;
+  max-width: 400px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(105%);
+  z-index: 200;
+  box-shadow: -2px 0 8px #333;
+  transition: transform ease-out 0.4s;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu h3 {
+  display: inline-block;
+  width: 85%;
+  margin: 15px auto 0;
+  color: rgb(148, 148, 148);
+  border-bottom: 1px solid rgb(148, 148, 148);
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.menu-item {
+  display: inline;
+}
+
+.side-menu-auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.side-menu-non-auth,
+.side-menu-auth-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu-non-auth a,
+.side-menu-auth a {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 85%;
+  text-decoration: none;
+  margin: 15px auto;
+  padding: 3px 10px;
+  color: rgb(148, 148, 148);
+  font-size: 20px;
+  text-align: left;
+  border-left: 3px solid transparent;
+  transition: all ease-out 0.3s;
+}
+
+.side-menu-non-auth a:hover,
+.side-menu-auth a:hover {
+  color: rgb(92, 92, 92);
+  border-left: 3px solid rgb(255, 75, 4);
+}
+
+.side-menu-non-auth a.active,
+.side-menu-auth a.active {
+  border-left-color: rgb(255, 75, 4);
+}
+
+.side-menu-auth-bottom {
+  border-top: 1px solid rgb(148, 148, 148);
+  width: 85%;
+  margin: 0 auto;
+}
+
+.side-menu-logout {
+  width: 100%;
+  margin: 20px 0 40px;
+  background-color: transparent;
+  border: none;
+  padding: 3px 10px;
+  font-size: 21px;
+  text-align: left;
+  color: rgb(148, 148, 148);
+  border-left: 3px solid transparent;
+  transition: all ease-out 0.3s;
+}
+
+.side-menu-logout:focus {
+  outline: none;
+}
+
+.side-menu-logout:hover {
+  cursor: pointer;
+  border-left-color: rgb(255, 75, 4);
+  color: rgb(92, 92, 92);
+}

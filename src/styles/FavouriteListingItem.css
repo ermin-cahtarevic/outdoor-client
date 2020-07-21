@@ -1,0 +1,117 @@
+.favourite-listing-item {
+  width: 80%;
+  margin: 10px auto;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.6);
+  border-radius: 7px;
+}
+
+.favourite-listing-item:focus {
+  outline: none;
+}
+
+.favourite-listing-item-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 7px 7px 0 0;
+}
+
+.favourite-listing-item-body {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.favourite-listing-item-body .h3 {
+  text-align: left;
+  color: rgb(93, 93, 93);
+  font-weight: 300;
+  font-size: 18px;
+  margin: 10px 0 15px;
+}
+
+.favourite-listing-item-body .h3:hover {
+  color: rgb(142, 142, 142);
+  cursor: pointer;
+}
+
+.favourite-listing-item-body .h3:focus {
+  outline: none;
+}
+
+.favourite-listing-item-body-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heart-icon {
+  color: rgb(255, 0, 0);
+  fill: rgb(255, 0, 0);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip:focus {
+  outline: none;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  top: -5px;
+  right: 140%;
+  z-index: 1;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip:hover .heart-icon {
+  visibility: visible;
+  cursor: pointer;
+  fill: none;
+}
+
+.tooltip:visited .heart-icon {
+  fill: none;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .favourite-listing-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .favourite-listing-item {
+    width: calc(33% - 20px);
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .favourite-listing-item {
+    width: calc(25% - 20px);
+    margin: 10px;
+  }
+}

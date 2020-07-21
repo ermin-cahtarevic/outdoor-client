@@ -1,0 +1,88 @@
+.home-top-section {
+  background: rgb(93, 93, 93) url(/group-hiking-3.jpeg) 50% 0 no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.home-top-section h1 {
+  color: white;
+  margin-top: 200px;
+  padding: 0 15px;
+  font-size: 45px;
+  text-shadow: 2px 2px #000;
+}
+
+.home-top-section h4 {
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+.start-free {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgb(255, 75, 4);
+  padding: 12px 28px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: all ease-out 0.3s;
+}
+
+.start-free:hover {
+  background-color: white;
+  color: rgb(255, 75, 4);
+}
+
+.home-main-section p {
+  font-size: 16px;
+  color: rgb(93, 93, 93);
+  margin-top: 30px;
+  padding: 0 15px;
+}
+
+.home-main-section h2 {
+  margin: 15px 0 45px;
+  padding: 0 15px;
+}
+
+.home-main-section-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.home-main-section-colored {
+  background-color: rgb(221, 221, 221);
+  margin-top: -10px;
+  padding-top: 25px;
+}
+
+.home-main-section-colored p {
+  margin: 0;
+}
+
+.footer-logo {
+  color: rgb(148, 148, 148);
+}
+
+.footer-text {
+  margin-bottom: 25px;
+}
+
+.footer-link {
+  display: inline-block;
+  color: rgb(93, 93, 93);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  color: rgb(148, 148, 148);
+}
